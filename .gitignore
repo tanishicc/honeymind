@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+.venv/
+
+# macOS
+.DS_Store
+
+# Runtime logs
+logs/*.jsonl
+
+# Large datasets
+data/*.jsonl
+!data/README.md
+
+# Experiment history / old models
+experiments/
+
+# Model checkpoints
+honeymind/models/*/checkpoint-*/
+
+# Local model adapter
+honeymind/models/honeymind-tinyllama-lora-v6/
