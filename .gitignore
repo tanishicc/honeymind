@@ -23,5 +23,4 @@ experiments/
 # Model checkpoints
 honeymind/models/*/checkpoint-*/
 
-# Local model adapter
-honeymind/models/honeymind-tinyllama-lora-v6/
+# Keep final v6 model adapter in repo; ignore only checkpoints

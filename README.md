@@ -5,7 +5,7 @@
 
 I wanted to explore a question:
 
-> Can a lightweight language model be used to create a believable deception environment that interacts with attackers and eventually learns from real-world attacker behaviour?
+> Can a lightweight language model be used to create a believable deception environment and provide a foundation for learning from future attacker behaviour?
 
 As someone interested in both cybersecurity and machine learning, I wanted a project that sat at the intersection of both fields.
 
@@ -21,8 +21,8 @@ Create an AI-powered terminal that could:
 
 - simulate Linux systems
 - deceive attackers
-- collect attacker telemetry
-- eventually improve itself using real attack data
+- log and analyse attacker-style interactions
+- eventually improve using real attack data collected from future deployments
 
 Initially, I thought I could simply fine-tune a model on terminal commands and responses.
 
@@ -116,21 +116,40 @@ After many experiments, I concluded:
 
 But it is good enough to build an intelligent deception environment.
 
+The benchmark suite focuses primarily on attacker reconnaissance and credential-access workflows rather than full Linux command coverage.
+
+
 ---
 
 # Final Architecture
 
+```text
 Internet Attacker
-↓
+        ↓
 HoneyMind Terminal
-↓
+        ↓
 Fine-Tuned TinyLlama (v6)
-↓
+        ↓
 Session Logging
-↓
+        ↓
 Attacker Profiling Engine
-↓
+        ↓
 Future Behaviour Models
+```
+
+---
+
+
+
+# Current Performance
+
+The final v6 model achieves approximately:
+
+- ~70% benchmark accuracy on the internal command test suite
+- Strong performance on reconnaissance and credential-access commands
+- Reduced performance on long-tail and unseen commands
+
+The project intentionally documents these limitations as part of the research journey and highlights the challenges of continual learning and small language model fine-tuning.
 
 ---
 
@@ -138,25 +157,25 @@ Future Behaviour Models
 
 ✅ Simulate Linux environments
 
-✅ Generate realistic terminal responses
+✅ Generate context-aware terminal responses for common attacker workflows
 
-✅ Log attacker sessions
+✅ Log interactive sessions
 
 ✅ Profile attacker behaviour
 
-✅ Assign risk scores
+✅ Assign session risk scores
 
-✅ Support dozens of attacker commands
+✅ Demonstrate AI-powered deception concepts
 
 ---
 
-# What It Cannot Do Yet
+# Current Limitations
 
-❌ Perfect Linux emulation
+⚠️ Does not perfectly emulate Linux systems
 
-❌ Support every shell command
+⚠️ Supports only a subset of Linux commands
 
-❌ Replace traditional honeypots
+⚠️ Not intended to replace production honeypots
 
 ---
 
@@ -171,21 +190,21 @@ It was learning:
 - continual learning
 - evaluation and benchmarking
 - the limitations of small language models
-- how deception systems can evolve using real attacker data
+- how deception systems could evolve using real attacker data
 
 ---
 
 # Future Vision
 
-Deploy publicly
+Future deployment
 ↓
 Collect real attacker interactions
 ↓
-Train behavioural models
+Train behavioural intelligence models
 ↓
 Predict attacker intent
 ↓
-Build adaptive cyber defences
+Build adaptive cyber defence systems
 
 ---
 
@@ -205,6 +224,10 @@ Build adaptive cyber defences
 🚧 Active Research Project
 
 This repository documents the ongoing development of HoneyMind and serves as both a portfolio project and a research experiment into AI-powered deception systems.
+
+HoneyMind is currently a research prototype and is not intended to replace production honeypots or provide full Linux emulation.
+
+
 
 ---
 
